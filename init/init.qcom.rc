@@ -447,7 +447,7 @@ on property:persist.sys.modem_auth_timeout=*
 on property:persist.sys.pil_proxy_timeout=*
     write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
 
-on property:persist.vendor.ssr.restart_level=*
+on property:persist.vendor.ssr.restart_level=* && property:vendor.spdaemon.spss.available=*
     start vendor.ssr_setup
 
 on property:persist.vendor.ssr.enable_ramdumps=1
