@@ -62,6 +62,12 @@ DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/vintf/manifest_samsung.xml \
     $(COMMON_PATH)/vintf/radio_manifest.xml
 
+ifeq ($(BOARD_HAVE_RIL))
+    DEVICE_MANIFEST_FILE += \
+    $(COMMON_PATH)/vintf/carrier_manifest.xml \
+    $(COMMON_PATH)/vintf/samsung_radio_manifest.xml
+endif
+
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
 # Init Boot

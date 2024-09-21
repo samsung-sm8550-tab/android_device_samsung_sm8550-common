@@ -239,7 +239,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.ramplus \
     init.fingerprint.rc \
-    init.nfc.samsung.rc \
     init.ramplus.rc \
     init.samsung.bsp.rc \
     init.samsung.connector.rc \
@@ -284,24 +283,27 @@ PRODUCT_COPY_FILES += \
     $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm64.policy \
     $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy
 
-# NFC
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2.vendor \
-    android.hardware.secure_element@1.2.vendor \
-    com.android.nfc_extras \
-    libchrome.vendor \
-    nqnfcinfo \
-    Tag
+ifeq ($(BOARD_HAVE_NFC),true)
+    # NFC
+    PRODUCT_PACKAGES += \
+        android.hardware.nfc@1.2.vendor \
+        android.hardware.secure_element@1.2.vendor \
+        com.android.nfc_extras \
+        libchrome.vendor \
+        nqnfcinfo \
+        Tag \
+        init.nfc.samsung.rc
 
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.ese.xml \
-    frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
+    PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.ese.xml \
+        frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
+        frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
+        frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
+        frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.ese.xml \
+        frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
+        frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
+        frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
+endif
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -321,12 +323,6 @@ PRODUCT_PACKAGES += \
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
-
-# OMX
-PRODUCT_PACKAGES += \
-    libOmxCore \
-    libmm-omxcore \
-    libstagefrighthw
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -393,11 +389,13 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     secril_config_svc
 
-PRODUCT_PACKAGES += \
-    sehradiomanager
+ifeq ($(BOARD_HAVE_RIL),true)
+    PRODUCT_PACKAGES += \
+        sehradiomanager
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ril/sehradiomanager.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sehradiomanager.conf
+    PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/configs/ril/sehradiomanager.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sehradiomanager.conf
+endif
 
 # Sensors
 PRODUCT_PACKAGES += \
