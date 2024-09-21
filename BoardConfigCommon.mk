@@ -76,11 +76,13 @@ BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # Kernel
 BOARD_BOOTCONFIG := \
+    androidboot.selinux=permissive \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3
 
 BOARD_KERNEL_CMDLINE := \
+    androidboot.selinux=permissive \
     printk.devkmsg=on \
     firmware_class.path=/vendor/firmware_mnt/image \
     video=vfb:640x400,bpp=32,memsize=3072000
