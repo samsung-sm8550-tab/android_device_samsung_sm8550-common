@@ -163,3 +163,14 @@ sh_binary {
     src: "init.qcom.usb.sh",
     vendor: true,
 }
+
+cc_library_static {
+    name: "libinit_samsung_sm8550",
+    srcs: ["init_sm8550.cpp"],
+    recovery_available: true,
+    whole_static_libs: ["libbase"],
+    include_dirs: [
+        "system/libbase/include",
+        "system/core/init"
+    ]
+}

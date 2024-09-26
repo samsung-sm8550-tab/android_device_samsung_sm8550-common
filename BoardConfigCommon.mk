@@ -68,6 +68,10 @@ DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_samsung_sm8550
+TARGET_RECOVERY_DEVICE_MODULES := libinit_samsung_sm8550
+
 # Kernel
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
