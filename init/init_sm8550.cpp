@@ -45,6 +45,7 @@ void set_ro_build_prop(const string &prop, const string &value) {
 
 void vendor_load_properties() {
     // Detect variant and override properties
+    string bootloader = GetProperty("ro.bootloader", "");
     string model = GetProperty("ro.boot.em.model", "");
     string device, name;
 
@@ -61,4 +62,11 @@ void vendor_load_properties() {
     set_ro_build_prop("model", model);
     set_ro_build_prop("name", name);
     set_build_prop("ro.build.product", device);
+
+    // Override build description and fingerprint
+    string fingerprint = "samsung/" + name + "/" + device + ":14/UP1A.231005.007/" + bootloader + ":user/release-keys";
+    string description = name + "-user 14 UP1A.231005.007 " + bootloader + " release-keys";
+    set_ro_build_prop("fingerprint", fingerprint);
+    set_build_prop("ro.build.description", description);
+    set_build_prop("ro.vendor.build.fingerprint", fingerprint);
 }
