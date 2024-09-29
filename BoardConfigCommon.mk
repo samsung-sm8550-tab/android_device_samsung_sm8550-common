@@ -64,6 +64,17 @@ DEVICE_MANIFEST_FILE := \
     hardware/qcom-caf/sm8550/audio/primary-hal/configs/common/manifest_non_qmaa.xml \
     hardware/qcom-caf/sm8550/audio/primary-hal/configs/common/manifest_non_qmaa_extn.xml
 
+# RIl
+BOARD_HAS_RIL ?= false
+ifeq ($(BOARD_HAS_RIL),true)
+    include $(COMMON_PATH)/ril/BoardConfigRIL.mk
+endif
+
+BOARD_HAS_NFC ?= false
+ifeq ($(BOARD_HAS_NFC),true)
+    include $(COMMON_PATH)/nfc/BoardConfigNFC.mk
+endif
+
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
 # Init Boot
@@ -157,9 +168,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
-
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security
 BOOT_SECURITY_PATCH := 2024-10-01
