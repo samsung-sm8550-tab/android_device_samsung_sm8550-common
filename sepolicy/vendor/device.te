@@ -13,3 +13,5 @@ type drb_device, dev_type;
 
 # Goodix fingerprint device
 type goodix_fingerprint_device, dev_type;
+# fingerprint
+type fingerprint_device, dev_type;
