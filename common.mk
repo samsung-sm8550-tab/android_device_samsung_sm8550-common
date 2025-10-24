@@ -172,11 +172,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
+ifneq ($(TARGET_IS_WIFI-ONLY),true)
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml \
     IPACM_Filter_cfg.xml
+endif
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -198,7 +200,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.ramplus \
     init.fingerprint.rc \
-    init.nfc.samsung.rc \
     init.ramplus.rc \
     init.samsung.bsp.rc \
     init.samsung.connector.rc \
@@ -247,9 +248,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
+ifneq ($(TARGET_IS_WIFI-ONLY),true)
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \
+    init.nfc.samsung.rc \
     com.android.nfc_extras \
     Tag
 
@@ -263,6 +266,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
+endif
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -279,7 +283,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
-    CarrierConfigResCommon \
     FrameworksResCommon \
     FrameworksResSamsung \
     FrameworksResTarget \
@@ -287,10 +290,16 @@ PRODUCT_PACKAGES += \
     SettingsResCommon \
     SettingsResSamsung \
     SystemUIResCommon \
-    TelephonyResCommon \
     WifiResCommon \
     WifiResTarget \
     WifiResTarget_spf
+
+ifneq ($(TARGET_IS_WIFI-ONLY),true)
+PRODUCT_PACKAGES += \
+    CarrierConfigResCommon \
+    TelephonyResCommon \
+    FrameworksResTelephony
+endif
 
 # Partitions
 PRODUCT_PACKAGES += \
@@ -321,6 +330,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
+ifneq ($(TARGET_IS_WIFI-ONLY),true)
 # RIL
 PRODUCT_PACKAGES += \
     libsec-ril \
@@ -329,6 +339,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ril/sehradiomanager.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sehradiomanager.conf
+endif
 
 # SPen
 ifeq ($(TARGET_HAS_SPEN),true)
@@ -370,6 +381,7 @@ PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/sku/properties/,$(TARGET_COPY_OUT_ODM)/etc/sku_props)
 
+ifneq ($(TARGET_IS_WIFI-ONLY),true)
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
@@ -386,6 +398,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
     frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
+endif
 
 # USB
 PRODUCT_PACKAGES += \
