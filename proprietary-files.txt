@@ -771,15 +771,6 @@ vendor/lib64/qti.video.utils.videobufferlayout.so
 # Memory
 vendor/lib64/libvmmem.so
 
-# NFC
-vendor/etc/libese-nxp.conf
-vendor/etc/libnfc-nxp.conf
-vendor/lib64/ese_spi_nxp.so
-vendor/lib64/nfc_nci_nxpsn.so
-
-# NFC firmware
-vendor/firmware/nfc/libsn220u_fw.so
-
 # Native public libraries
 vendor/etc/public.libraries.txt
 
