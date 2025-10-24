@@ -921,10 +921,6 @@ vendor/bin/ssr_diag
 vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
 
-# Secure element
-vendor/bin/hw/android.hardware.secure_element@1.2-service
-vendor/etc/init/android.hardware.secure_element@1.2-service.rc
-
 # Sensors
 vendor/bin/init.qcom.sensors.sh
 vendor/bin/sensors.qti
