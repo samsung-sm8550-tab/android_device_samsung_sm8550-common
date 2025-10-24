@@ -686,7 +686,6 @@ system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
 vendor/etc/init/ims_rtp_daemon.rc
 vendor/etc/init/imsdaemon.rc
-vendor/etc/permissions/vendor.samsung.hardware.telephony.cdma_excluded.xml
 vendor/etc/seccomp_policy/imsrtp.policy
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
