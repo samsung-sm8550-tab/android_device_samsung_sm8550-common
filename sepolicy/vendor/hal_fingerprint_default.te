@@ -55,3 +55,14 @@ binder_call(hal_fingerprint_default, system_app)
 allow hal_fingerprint_default goodix_fingerprint_device:chr_file rw_file_perms;
 
 allow hal_fingerprint_default self:netlink_socket { bind create read write };
+allow hal_fingerprint_default vendor_sysfs_backlight_writable:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_backlight_writable:file rw_file_perms;
+
+allow hal_fingerprint_default vendor_sysfs_graphics:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_graphics:file rw_file_perms;
+
+allow hal_fingerprint_default vendor_sysfs_battery:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_battery:file rw_file_perms;
+
+allow hal_fingerprint_default sysfs:dir r_dir_perms;
+allow hal_fingerprint_default sysfs:file rw_file_perms;
