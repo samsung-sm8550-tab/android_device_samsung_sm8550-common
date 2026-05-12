@@ -27,6 +27,9 @@ type tee_efs_file, file_type;
 type sysfs_sec_fastcharge, fs_type, sysfs_type;
 type sysfs_sec_fastcharge_writable, fs_type, sysfs_type;
 
+# S Pen
+type sysfs_spen, fs_type, sysfs_type;
+
 
 # Fingerprint
 type vendor_biometrics_data_file, file_type, data_file_type;
