@@ -18,23 +18,18 @@
 /mnt/vendor/efs/prov(/.*)?                   u:object_r:dak_efs_file:s0
 /mnt/vendor/efs/prov_data(/.*)?              u:object_r:dak_efs_file:s0
 /mnt/vendor/efs/tee(/.*)?                    u:object_r:tee_efs_file:s0
+/mnt/vendor/efs/wifi(/.*)?                   u:object_r:wifi_efs_file:s0
 
 # Battery
 /sys/class/power_supply(/.*)?                                                                   u:object_r:sysfs_batteryinfo:s0
 /sys/class/power_supply/battery(/.*)?                                                           u:object_r:sysfs_batteryinfo:s0
 /sys/devices/platform/soc/soc:battery/power_supply(/.*)?                                        u:object_r:sysfs_batteryinfo:s0
 
-# S Pen
-/sys/devices/virtual/sec/sec_epen(/.*)?      u:object_r:sysfs_spen:s0
-
 # Convergence data
 /data/vendor/conn(/.*)?                      u:object_r:vendor_convergence_data_file:s0
 
 # Fingerprint data
 /data/vendor/biometrics(/.*)?                u:object_r:vendor_biometrics_data_file:s0
-
-# Fingerprint device
-/dev/esfp0                                   u:object_r:fingerprint_device:s0
 
 # Firmware
 /odm/firmware(/.*)?                          u:object_r:vendor_firmware_file:s0
@@ -66,18 +61,8 @@
 # Goodix fingerprint device
 /dev/goodix_fp                               u:object_r:goodix_fingerprint_device:s0
 
-# Panel sysfs nodes
-/sys/class/backlight/panel[0-9]+-backlight/brightness u:object_r:vendor_sysfs_backlight_writable:s0
-/sys/class/lcd/panel/mask_brightness                  u:object_r:vendor_sysfs_backlight_writable:s0
-/sys/class/lcd/panel/night_dim                              u:object_r:sysfs_nightdim:s0
-/sys/class/lcd/panel1/night_dim                             u:object_r:sysfs_nightdim:s0
-/sys/class/fingerprint/fingerprint/position                 u:object_r:sysfs_fingerprint_pos:s0
-/sys/class/sec/tsp(/.*)?                                    u:object_r:sec_tsp_sysfs:s0
-
 # Touchscreen
 /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi[0-9]/spi[0-9].[0-9]/wakeup(/.*)? u:object_r:sysfs_wakeup:s0
-/sys/devices/platform/soc/.*(/sm5714-fuelgauge|/sm5714-charger)/power_supply/.*       u:object_r:vendor_sysfs_battery:s0
-/sys/devices/platform/soc/[a-f0-9]+\.qcom,qupv3_i2c_geni_se/[a-f0-9]+\.i2c/i2c-[0-9]+/[0-9]+-[0-9]+/power_supply/.+   u:object_r:sysfs_battery:s0
 
 # UFS Devices
 /dev/block/platform/soc/1d84000.ufshc/by-name/bluetooth      u:object_r:vendor_modem_block_device:s0
@@ -96,15 +81,13 @@
 /(vendor|system/vendor)/bin/hw/android.hardware.sensors-service.samsung-multihal                             u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint(@[0-9].[0-9])?-service\.samsung    u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.samsung                                    u:object_r:hal_health_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.samsung(-q5q)?                                u:object_r:hal_lineage_touch_default_exec:s0
-
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.samsung(-foldable)?                           u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay-service.samsung-qcom                             u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.powershare-service\.samsung                                  u:object_r:hal_lineage_powershare_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.2-service                                u:object_r:hal_secure_element_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.samsung                                  u:object_r:hal_vibrator_default_exec:s0
-/(vendor|system/vendor)/bin/hw/.android\.hardware\.nfc-service.nxp                                           u:object_r:hal_nfc_default_exec:s0
 /(vendor|system/vendor)/bin/hw/sehradiomanager                                                               u:object_r:sehradiomanager_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.camera\.provider-service_64                        u:object_r:hal_camera_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.thermal@1\.0-service                               u:object_r:hal_thermal_default_exec:s0
 /(vendor|system/vendor)/bin/secril_config_svc                                                                u:object_r:vendor_secril_config_svc_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.spen-service                                       u:object_r:hal_samsung_spen_default_exec:s0
+/(vendor|system/vendor)/bin/hw/macloader                                                                     u:object_r:macloader_exec:s0

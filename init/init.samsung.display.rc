@@ -545,7 +545,21 @@ on post-fs-data
 
 	chown system system /sys/class/lcd/panel1/night_dim
 	chmod 0660 /sys/class/lcd/panel1/night_dim
-	
+
+# factory pretest
+	chown system system /sys/class/lcd/panel/fac_pretest
+	chmod 0660 /sys/class/lcd/panel/fac_pretest
+
+	chown system system /sys/class/lcd/panel1/fac_pretest
+	chmod 0660 /sys/class/lcd/panel1/fac_pretest
+
+# tcon pre_emphasis
+	chown system system /sys/class/lcd/panel/tcon_pe
+	chmod 0660 /sys/class/lcd/panel/tcon_pe
+
+	chown system system /sys/class/lcd/panel1/tcon_pe
+	chmod 0660 /sys/class/lcd/panel1/tcon_pe
+
 # vendor graphics trace points - perfetto-trace
     chmod 0660 /sys/kernel/debug/tracing/events/drm/enable
     chmod 0660 /sys/kernel/tracing/events/drm/enable
@@ -573,6 +587,4 @@ on post-fs-data
     chmod 0660 /sys/kernel/debug/tracing/events/sde/sde_perf_update_bus/enable
     chmod 0660 /sys/kernel/tracing/events/sde/sde_perf_update_bus/enable
     chmod 0660 /sys/kernel/debug/tracing/events/sde/tracing_mark_write/enable
-    chmod 0660 /sys/kernel/tracing/events/sde/tracing_mark_write/enable	
-
-	setprop system.display_driver.ready true
+    chmod 0660 /sys/kernel/tracing/events/sde/tracing_mark_write/enable

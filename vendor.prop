@@ -67,6 +67,9 @@ ro.camera.enableCamera1MaxZsl=1
 # Crypto
 ro.crypto.metadata_init_delete_all_keys.enabled=true
 
+# Dex2oat
+dalvik.vm.dex2oat64.enabled=true
+
 # Display
 persist.sys.sf.color_mode=0
 persist.sys.sf.hs_mode=0
@@ -111,7 +114,7 @@ ro.hardware.gatekeeper=mdfpp
 
 # Graphics
 debug.sf.auto_latch_unsignaled=0
-debug.sf.disable_client_composition_cache=1
+debug.sf.disable_client_composition_cache=0
 debug.sf.early.app.duration=16600000
 debug.sf.early.sf.duration=16600000
 debug.sf.earlyGl.app.duration=16600000
@@ -157,6 +160,23 @@ debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
 vendor.media.omx=0
 
+# NFC
+ro.camera.notify_nfc=1
+ro.vendor.nfc.feature.chipname=NXP_SN100U
+ro.vendor.nfc.info.antpos=1
+ro.vendor.nfc.info.antposX=37.0
+ro.vendor.nfc.info.antposY=79.0
+ro.vendor.nfc.info.deviceFoldable=false
+ro.vendor.nfc.info.deviceHeight=157.8
+ro.vendor.nfc.info.deviceWidth=76.2
+ro.vendor.nfc.support.advancedsetting=false
+ro.vendor.nfc.support.autoselect=true
+ro.vendor.nfc.support.defaultaid=true
+ro.vendor.nfc.support.ese=true
+ro.vendor.nfc.support.nonaid=true
+ro.vendor.nfc.support.othercategory=true
+ro.vendor.nfc.support.uicc=true
+
 # NTP
 persist.backup.ntpServer=0.pool.ntp.org
 
@@ -169,6 +189,18 @@ vendor.power.pasr.enabled=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+
+# RCS
+persist.vendor.rcs.singlereg.feature=1
+
+# Radio
+persist.vendor.radio.atfwd.start=true
+persist.vendor.radio.enableadvancedscan=true
+ro.radio.noril=no
+ro.telephony.default_cdma_sub=0
+ro.telephony.default_network=33,33
+ro.vendor.sec.radio.def_network=9
+ro.vendor.use_data_netmgrd=false
 
 # Sensor
 persist.vendor.sensors.debug.hal=0

@@ -21,6 +21,9 @@ genfscon sysfs "/devices/virtual/camera"                          u:object_r:ven
 genfscon sysfs "/devices/virtual/camera/flash/rear_flash"         u:object_r:vendor_sysfs_camera_writable:s0
 genfscon sysfs "/devices/virtual/camera/rear/ssrm_camera_info"    u:object_r:vendor_sysfs_camera_writable:s0
 
+# Charging Control
+genfscon sysfs "/class/power_supply/battery/batt_slate_mode"      u:object_r:vendor_sysfs_battery:s0
+
 # Display
 genfscon sysfs "/devices/virtual/lcd/panel"                       u:object_r:vendor_sysfs_display:s0
 genfscon sysfs "/devices/virtual/mdnie"                           u:object_r:vendor_sysfs_mdnie:s0
@@ -37,6 +40,7 @@ genfscon sysfs "/devices/virtual/input"                           u:object_r:ven
 # Wakeup
 genfscon sysfs "/devices/platform/i2c@51/i2c-51/51-0059/wakeup"                                                                                             u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/i2c@53/i2c-53/53-0028/wakeup"                                                                                             u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/i2c@54/i2c-54/54-0028/wakeup"                                                                                             u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/samsung_mobile_device/samsung_mobile_device:battery/power_supply/ac/wakeup"                                               u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/samsung_mobile_device/samsung_mobile_device:battery/power_supply/battery/wakeup"                                          u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/samsung_mobile_device/samsung_mobile_device:battery/power_supply/otg/wakeup"                                              u:object_r:sysfs_wakeup:s0
@@ -62,12 +66,13 @@ genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-57/57-0066/max77705-usbc/wakeup"                                         u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-57/57-0066/wakeup"                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/a600000.ssusb/a600000.dwc3/wakeup"                                                                                    u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-44/44-0056/wakeup"                                                         u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-64/64-0056/wakeup"                                                         u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a9c000.qcom,qup_hsuart/wakeup"                                                            u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/ae90000.qcom,dp_display/wakeup"                                                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/soc:qcom,qbt2000/wakeup"                                                                                              u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/i2c@31/i2c-31/31-0059/wakeup"                                                                                             u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/i2c@34/i2c-34/34-0028/wakeup"                                                                                             u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/0.etspi,el7xx/wakeup"                                                                                                 u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-37/37-0038/power_supply/mfc-charger/wakeup"                              u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-37/37-0038/wakeup"                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-38/38-0057/power_supply/pca9481-charger/wakeup"                          u:object_r:sysfs_wakeup:s0
@@ -92,16 +97,6 @@ genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i
 genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-58/58-0066/wakeup"                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-40/40-0056/wakeup"                                                         u:object_r:sysfs_wakeup:s0
 genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a8c000.i2c/i2c-60/60-0056/wakeup"                                                         u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/8c0000.qcom,qupv3_2_geni_se/88c000.i2c/i2c-59/59-0020/wakeup"                                                         u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/98c000.i2c/i2c-55/55-0063/power_supply/sm5440-charger/wakeup"                           u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/98c000.i2c/i2c-55/55-0063/wakeup"                                                       u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-56/56-0049/sm5714-charger/power_supply/sm5714-charger/wakeup"            u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-56/56-0049/sm5714-charger/power_supply/sm5714-otg/wakeup"                u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-56/56-0049/sm5714-charger/wakeup"                                        u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-56/56-0049/sm5714-fuelgauge/power_supply/sm5714-fuelgauge/wakeup"        u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-56/56-0049/sm5714-fuelgauge/wakeup"                                      u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a0000.i2c/i2c-56/56-0049/wakeup"                                                       u:object_r:sysfs_wakeup:s0
-genfscon sysfs "/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/9a4000.i2c/i2c-57/57-0033/wakeup"                                                       u:object_r:sysfs_wakeup:s0
 
 # Sensor
 genfscon sysfs "/devices/virtual/sensor_event"                                               u:object_r:vendor_sysfs_sensors:s0
@@ -121,56 +116,23 @@ genfscon sysfs "/devices/virtual/sec/sec-pa-thermistor"                       u:
 genfscon sysfs "/devices/virtual/sec/sec-wf-thermistor"                       u:object_r:vendor_sysfs_thermal:s0
 
 # Touchscreen
-genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi"       u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp"                                                          u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/cmd"                                                      u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/enabled"                                                  u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/prox_power_off"                                           u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/prox_power_on"                                            u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/sensitivity_mode"                                         u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/noise_mode"                                               u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/comm_err_count"                                           u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/multi_count"                                              u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/wet_mode"                                                 u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp/all_touch_count"                                          u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/checksum"                                                 u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/cmd_list"                                                 u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/cmd_result"                                               u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/cmd_result_all"                                           u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/cmd_status"                                               u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/cmd_status_all"                                           u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/fod_info"                                                 u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/fod_pos"                                                  u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/get_lp_dump"                                              u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/ito_check"                                                u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/module_id"                                                u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/raw_check"                                                u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/read_ambient_info"                                        u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/scrub_pos"                                                u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp/support_feature"                                          u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp1"                                                         u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp1/cmd"                                                     u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp1/ear_detect_enable"                                       u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp1/prox_power_off"                                          u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp2"                                                         u:object_r:vendor_sysfs_touchscreen:s0
-genfscon sysfs "/devices/virtual/sec/tsp2/cmd"                                                     u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp2/ear_detect_enable"                                       u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/tsp2/prox_power_off"                                          u:object_r:vendor_sysfs_touchscreen_writable:s0
-
-# LCD panel writable nodes
-genfscon sysfs "/devices/virtual/lcd/panel/fp_green_circle"                                        u:object_r:vendor_sysfs_touchscreen_writable:s0
-
-# Fingerprint
-genfscon sysfs "/devices/virtual/fingerprint/fingerprint/position"            u:object_r:vendor_sysfs_fingerprint:s0
-
-# Night dim
-genfscon sysfs "/class/lcd/panel/night_dim"                                    u:object_r:sysfs_nightdim:s0
-genfscon sysfs "/class/lcd/panel1/night_dim"                                   u:object_r:sysfs_nightdim:s0
-
-# Backlight
-genfscon sysfs "/class/backlight/panel0-backlight/brightness"                 u:object_r:vendor_sysfs_backlight_writable:s0
-genfscon sysfs "/class/lcd/panel/mask_brightness"                             u:object_r:vendor_sysfs_backlight_writable:s0
+genfscon sysfs "/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi" u:object_r:vendor_sysfs_touchscreen:s0
+genfscon sysfs "/devices/virtual/sec/tsp"                                                    u:object_r:vendor_sysfs_touchscreen:s0
+genfscon sysfs "/devices/virtual/sec/tsp/cmd"                                                u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp/ear_detect_enable"                                  u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp/prox_power_off"                                     u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp1"                                                    u:object_r:vendor_sysfs_touchscreen:s0
+genfscon sysfs "/devices/virtual/sec/tsp1/cmd"                                                u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp1/ear_detect_enable"                                  u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp1/prox_power_off"                                     u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp2"                                                    u:object_r:vendor_sysfs_touchscreen:s0
+genfscon sysfs "/devices/virtual/sec/tsp2/cmd"                                                u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp2/ear_detect_enable"                                  u:object_r:vendor_sysfs_touchscreen_writable:s0
+genfscon sysfs "/devices/virtual/sec/tsp2/prox_power_off"                                     u:object_r:vendor_sysfs_touchscreen_writable:s0
 
 # Vibrator
 genfscon sysfs "/devices/virtual/sec_vib_inputff/control/use_sep_index"       u:object_r:vendor_sysfs_vib_writable:s0
 genfscon sysfs "/devices/virtual/vib_info_class/vib_support_info/functions"   u:object_r:vendor_sysfs_vib_support:s0
+
+# Wi-Fi
+genfscon sysfs "/wifi" u:object_r:sysfs_wifi:s0

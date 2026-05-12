@@ -1,5 +1,0 @@
-# HALs
-hal_attribute_lineage(samsung_spen)
-
-# Tag for read/write filesystem type
-attribute rw_fs_type;
