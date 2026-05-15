@@ -1,2 +1,5 @@
 allow hal_lineage_touch_default vendor_sysfs_touchscreen:dir search;
 allow hal_lineage_touch_default vendor_sysfs_touchscreen_writable:file rw_file_perms;
+allow hal_lineage_touch_default vendor_sysfs_touchscreen:file r_file_perms;
+allow hal_lineage_touch_default sysfs_spen:dir search;
+allow hal_lineage_touch_default sysfs_spen:file rw_file_perms;
