@@ -1,2 +1,6 @@
 # S pen
 hal_client_domain(system_app, hal_samsung_spen)
+
+# SamsungBiometrics (SamsungOpticalUdfpsService writes mask_brightness)
+allow system_app vendor_sysfs_display:dir search;
+allow system_app vendor_sysfs_backlight_writable:file rw_file_perms;
