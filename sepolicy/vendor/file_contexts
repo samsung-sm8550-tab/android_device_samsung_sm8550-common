@@ -65,6 +65,10 @@
 # Panel sysfs nodes
 /sys/class/fingerprint/fingerprint/position                 u:object_r:vendor_sysfs_fingerprint_pos:s0
 
+# Night dim sysfs nodes
+/sys/class/lcd/panel/night_dim                              u:object_r:vendor_sysfs_nightdim:s0
+/sys/class/lcd/panel1/night_dim                             u:object_r:vendor_sysfs_nightdim:s0
+
 # Touchscreen
 /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi[0-9]/spi[0-9].[0-9]/wakeup(/.*)? u:object_r:sysfs_wakeup:s0
 
