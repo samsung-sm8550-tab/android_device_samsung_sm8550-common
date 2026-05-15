@@ -180,3 +180,7 @@ genfscon sysfs "/devices/virtual/sec/tsp/support_feature"                       
 
 # LCD panel writable nodes
 genfscon sysfs "/devices/virtual/lcd/panel/fp_green_circle"                                        u:object_r:vendor_sysfs_touchscreen_writable:s0
+
+# Night dim
+genfscon sysfs "/class/lcd/panel/night_dim"                                    u:object_r:vendor_sysfs_nightdim:s0
+genfscon sysfs "/class/lcd/panel1/night_dim"                                   u:object_r:vendor_sysfs_nightdim:s0
