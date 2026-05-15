@@ -147,3 +147,6 @@ genfscon sysfs "/devices/virtual/vib_info_class/vib_support_info/functions"   u:
 
 # Wi-Fi
 genfscon sysfs "/wifi" u:object_r:sysfs_wifi:s0
+
+# Fingerprint
+genfscon sysfs "/devices/virtual/fingerprint/fingerprint/position"            u:object_r:vendor_sysfs_fingerprint:s0

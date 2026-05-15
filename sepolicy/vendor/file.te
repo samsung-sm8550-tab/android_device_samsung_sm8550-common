@@ -61,3 +61,9 @@ type vendor_sysfs_vib_writable, fs_type, sysfs_type;
 # Wi-Fi
 type sysfs_wifi, fs_type, sysfs_type;
 type wifi_efs_file, file_type;
+
+# LiveDisplay
+type vendor_sysfs_lcd_writable, sysfs_type, fs_type;
+
+# fod_pos
+type vendor_sysfs_fingerprint_pos, sysfs_type, fs_type;

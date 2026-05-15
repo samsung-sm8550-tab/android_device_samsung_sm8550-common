@@ -60,6 +60,10 @@
 
 # Goodix fingerprint device
 /dev/goodix_fp                               u:object_r:goodix_fingerprint_device:s0
+/dev/esfp0                                   u:object_r:fingerprint_device:s0
+
+# Panel sysfs nodes
+/sys/class/fingerprint/fingerprint/position                 u:object_r:vendor_sysfs_fingerprint_pos:s0
 
 # Touchscreen
 /sys/devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a90000.spi/spi_master/spi[0-9]/spi[0-9].[0-9]/wakeup(/.*)? u:object_r:sysfs_wakeup:s0
