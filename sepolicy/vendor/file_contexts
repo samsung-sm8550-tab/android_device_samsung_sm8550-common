@@ -65,6 +65,10 @@
 # Panel sysfs nodes
 /sys/class/fingerprint/fingerprint/position                 u:object_r:vendor_sysfs_fingerprint_pos:s0
 
+# Backlight sysfs nodes
+/sys/class/backlight/panel[0-9]+-backlight/brightness u:object_r:vendor_sysfs_backlight_writable:s0
+/sys/class/lcd/panel/mask_brightness                  u:object_r:vendor_sysfs_backlight_writable:s0
+
 # Night dim sysfs nodes
 /sys/class/lcd/panel/night_dim                              u:object_r:vendor_sysfs_nightdim:s0
 /sys/class/lcd/panel1/night_dim                             u:object_r:vendor_sysfs_nightdim:s0

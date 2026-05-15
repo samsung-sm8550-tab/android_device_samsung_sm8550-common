@@ -68,5 +68,9 @@ type vendor_sysfs_lcd_writable, sysfs_type, fs_type;
 # fod_pos
 type vendor_sysfs_fingerprint_pos, sysfs_type, fs_type;
 
+# Backlight
+type vendor_sysfs_backlight, fs_type, sysfs_type;
+type vendor_sysfs_backlight_writable, fs_type, sysfs_type;
+
 # night_dim
 type vendor_sysfs_nightdim, sysfs_type, fs_type;

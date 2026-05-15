@@ -184,3 +184,7 @@ genfscon sysfs "/devices/virtual/lcd/panel/fp_green_circle"                     
 # Night dim
 genfscon sysfs "/class/lcd/panel/night_dim"                                    u:object_r:vendor_sysfs_nightdim:s0
 genfscon sysfs "/class/lcd/panel1/night_dim"                                   u:object_r:vendor_sysfs_nightdim:s0
+
+# Backlight
+genfscon sysfs "/class/backlight/panel0-backlight/brightness"                 u:object_r:vendor_sysfs_backlight_writable:s0
+genfscon sysfs "/class/lcd/panel/mask_brightness"                             u:object_r:vendor_sysfs_backlight_writable:s0
