@@ -18,3 +18,5 @@ allow hal_power_default vendor_sysfs_battery:file rw_file_perms;
 
 # Allow binder calls from power hal to system app 
 binder_call(hal_power_default, system_app)
+
+allow hal_power_default sysfs:file rw_file_perms;
