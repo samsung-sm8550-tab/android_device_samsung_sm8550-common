@@ -20,8 +20,9 @@ allow hal_fingerprint_default tee_efs_file:dir search;
 allow hal_fingerprint_default vendor_biometrics_data_file:dir create_dir_perms;
 allow hal_fingerprint_default vendor_biometrics_data_file:file create_file_perms;
 
-# Allow fingerprint HAL to search vendor_sysfs_battery files
+# Allow fingerprint HAL to read vendor_sysfs_battery (battery temperature check)
 allow hal_fingerprint_default vendor_sysfs_battery:dir search;
+allow hal_fingerprint_default vendor_sysfs_battery:file r_file_perms;
 
 # Allow binder calls from fp hal to system app
 binder_call(hal_fingerprint_default, system_app)
@@ -30,3 +31,13 @@ binder_call(hal_fingerprint_default, system_app)
 allow hal_fingerprint_default goodix_fingerprint_device:chr_file rw_file_perms;
 
 allow hal_fingerprint_default self:netlink_socket { bind create read write };
+
+allow hal_fingerprint_default fingerprint_device:chr_file { open read write getattr ioctl };
+
+# Allow fingerprint HAL to write fp_green_circle via touchscreen_writable
+# /sys/class/lcd/panel is vendor_sysfs_display; fp_green_circle is vendor_sysfs_touchscreen_writable
+allow hal_fingerprint_default vendor_sysfs_display:dir search;
+allow hal_fingerprint_default vendor_sysfs_touchscreen:dir search;
+allow hal_fingerprint_default vendor_sysfs_touchscreen:file r_file_perms;
+allow hal_fingerprint_default vendor_sysfs_touchscreen_writable:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_touchscreen_writable:file rw_file_perms;
