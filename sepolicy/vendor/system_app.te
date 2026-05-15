@@ -1,0 +1,3 @@
+# SamsungBiometrics (SamsungOpticalUdfpsService writes mask_brightness)
+allow system_app vendor_sysfs_display:dir search;
+allow system_app vendor_sysfs_backlight_writable:file rw_file_perms;
