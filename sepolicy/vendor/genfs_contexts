@@ -142,8 +142,8 @@ genfscon sysfs "/devices/virtual/sec/tsp2/ear_detect_enable"                    
 genfscon sysfs "/devices/virtual/sec/tsp2/prox_power_off"                                     u:object_r:vendor_sysfs_touchscreen_writable:s0
 genfscon sysfs "/devices/virtual/sec/sec_touchkey"                                            u:object_r:vendor_sysfs_touchscreen:s0
 genfscon sysfs "/devices/virtual/sec/sec_touchkey/input/enabled"                              u:object_r:vendor_sysfs_touchscreen_writable:s0
-genfscon sysfs "/devices/virtual/sec/sec_epen"                                                u:object_r:sysfs_spen:s0
-genfscon sysfs "/devices/virtual/sec/sec_epen/epen_gestures"                                  u:object_r:sysfs_spen:s0
+genfscon sysfs "/devices/virtual/sec/sec_epen"                                                u:object_r:vendor_sysfs_spen:s0
+genfscon sysfs "/devices/virtual/sec/sec_epen/epen_gestures"                                  u:object_r:vendor_sysfs_spen:s0
 
 # Vibrator
 genfscon sysfs "/devices/virtual/sec_vib_inputff/control/use_sep_index"       u:object_r:vendor_sysfs_vib_writable:s0

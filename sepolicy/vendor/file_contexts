@@ -26,9 +26,6 @@
 /sys/class/power_supply/battery(/.*)?                                                           u:object_r:sysfs_batteryinfo:s0
 /sys/devices/platform/soc/soc:battery/power_supply(/.*)?                                        u:object_r:sysfs_batteryinfo:s0
 
-# S Pen
-/sys/devices/virtual/sec/sec_epen(/.*)?      u:object_r:sysfs_spen:s0
-
 # Convergence data
 /data/vendor/conn(/.*)?                      u:object_r:vendor_convergence_data_file:s0
 
