@@ -1,4 +1,5 @@
 # All unpinned blobs are extracted from S911BXXS8EZA1
+# time_client is pinned from SM-X710 X710XXS6EZI2
 
 # ADSP
 vendor/bin/adsprpcd
@@ -970,7 +971,7 @@ vendor/lib64/vendor.samsung.hardware.thermal@1.0.so
 
 # Time services
 vendor/app/TimeService/TimeService.apk
-vendor/bin/time_client
+vendor/bin/time_client|93ea9a12b007990d9bd2f5b779044508f5c30ba7
 vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
