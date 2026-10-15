@@ -63,10 +63,11 @@ def IncrementalOTA_InstallEnd(info):
 
 def AddImage(info, basename, dest):
   path = "IMAGES/" + basename
-  if path not in info.input_zip.namelist():
+  input_zip = getattr(info, "input_zip", None) or info.target_zip
+  if path not in input_zip.namelist():
     return
 
-  data = info.input_zip.read(path)
+  data = input_zip.read(path)
   common.ZipWriteStr(info.output_zip, basename, data)
   # Compare only image bytes: the physical partition can be larger.
   staged = "/tmp/" + basename
